@@ -7,13 +7,43 @@
 //
 
 #import "AppDelegate.h"
-
+#import "MeViewController.h"
+#import "CationViewController.h"
+#import "HealthViewController.h"
+#import "SetViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
+    
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:[[MeViewController alloc] init]];
+    
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:[[CationViewController alloc] init]];
+    
+    UINavigationController *nav3 = [[UINavigationController alloc] initWithRootViewController:[[HealthViewController alloc] init]];
+    
+    UINavigationController *nav4 = [[UINavigationController alloc] initWithRootViewController:[[SetViewController alloc] init]];
+    
+    nav1.title = @"个性";
+    nav2.title = @"交际圈";
+    nav3.title = @"健康推荐";
+    nav4.title = @"个性设置";
+    
+    nav1.navigationBar.translucent = NO;
+    nav2.navigationBar.translucent = NO;
+    nav3.navigationBar.translucent = NO;
+    nav4.navigationBar.translucent = NO;
+    
+    nav1.tabBarItem.image  = [UIImage imageNamed:@"activity_main_navis_1_r"];
+    nav2.tabBarItem.image  = [UIImage imageNamed:@"activity_main_navis_2_r"];
+    nav3.tabBarItem.image = [UIImage imageNamed:@"activity_main_navis_3_r"];
+    nav4.tabBarItem.image   = [UIImage imageNamed:@"activity_main_navis_4_r"];
+    
+    UITabBarController *tabBar = [[UITabBarController alloc] init];
+    tabBar.viewControllers = @[nav1,nav2,nav3,nav4];
+    self.window.rootViewController = tabBar;
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

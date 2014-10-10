@@ -14,3 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#define Color(r,g,b) [UIColor colorWithRed:r % 256 / 255.0 green:g % 256 / 255.0 blue:b % 256 / 255.0 alpha:1]
+#define KTitleHeight 65
+#define is_IOS_7 [[[UIDevice currentDevice] systemVersion] floatValue]
